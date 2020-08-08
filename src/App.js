@@ -44,7 +44,7 @@ function App() {
   return (
     <div className="app">
       <Modal open={open} onClose={() => setOpen(false)}>
-        <div style={modalStyle} className={classes.paper}>
+        <div style={modalStyle[0]} className={classes.paper}>
           <h2 id="simple-modal-title">Text in a modal</h2>
         </div>
       </Modal>
@@ -57,7 +57,6 @@ function App() {
       </div>
 
       <Button
-        type="button"
         onClick={() => {
           setOpen(true);
         }}
