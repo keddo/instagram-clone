@@ -1,5 +1,5 @@
 # Instagram Clone
-> This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).I build an [Instagram](https://instagram.com/) clone.
+> This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app). In this project I build an [Instagram](https://instagram.com/) clone.
 
 ![screenshot](./app_screenshot.png)
 
