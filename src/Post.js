@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Post.css";
 import Avatar from "@material-ui/core/Avatar";
 function Post({ username, caption, imageUrl }) {
@@ -11,13 +11,13 @@ function Post({ username, caption, imageUrl }) {
           src="/static/images/avatar/1.jpg"
         />
         {/* header -> avatar + username */}
-        <h3>Rafeh Qazi</h3>
+        <h3>{username}</h3>
       </div>
       {/* Image */}
       <img className="post__image" src={imageUrl} alt="Post user" />
       {/* username + caption */}
       <h4 className="post__text">
-        <strong>cleveqazi:</strong> {caption}
+        <strong>{username}:</strong> {caption}
       </h4>
     </div>
   );
