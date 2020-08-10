@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import "./App.css";
 import { db } from "./firebase";
 import Post from "./Post";
-import { Button } from "@material-ui/core";
+import { Button, Input } from "@material-ui/core";
 import Modal from "@material-ui/core/Modal";
 import { makeStyles } from "@material-ui/core/styles";
 
@@ -33,6 +33,9 @@ function App() {
   const modalStyle = useState(getModalStyle);
   const [posts, setPosts] = useState([]);
   const [open, setOpen] = useState(false);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [username, setUsername] = useState("");
   // useEffect
   useEffect(() => {
     db.collection("posts").onSnapshot((snapshot) => {
@@ -40,12 +43,39 @@ function App() {
     });
   }, []);
 
-  console.log(modalStyle);
+  const handleLogin = (event) => {};
   return (
     <div className="app">
       <Modal open={open} onClose={() => setOpen(false)}>
         <div style={modalStyle[0]} className={classes.paper}>
-          <h2 id="simple-modal-title">Text in a modal</h2>
+          <center>
+            <img
+              src="https://www.instagram.com/static/images/web/mobile_nav_type_logo.png/735145cfe0a4.png"
+              alt="Instagram Logo"
+              className="app__headerImage"
+            />
+
+            <Input
+              type="text"
+              placeholder="Usear name"
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
+            />
+            <Input
+              type="text"
+              placeholder="Email"
+              value={email}
+              onChange={(e) => setEmail(e.target.valueAsDate)}
+            />
+
+            <Input
+              type="password"
+              placeholder="Password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
+            <Button onClick={handleLogin}>Sign in</Button>
+          </center>
         </div>
       </Modal>
       <div className="app__header">
