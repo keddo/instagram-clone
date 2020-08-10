@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./App.css";
-import { db } from "./firebase";
+import { db, auth } from "./firebase";
 import Post from "./Post";
 import { Button, Input } from "@material-ui/core";
 import Modal from "@material-ui/core/Modal";
@@ -43,17 +43,24 @@ function App() {
     });
   }, []);
 
-  const handleLogin = (event) => {};
+  const handleSignup = (event) => {
+    event.preventDefault();
+    auth
+      .createUserWithEmailAndPassword(email, password)
+      .catch((error) => alert(error.message));
+  };
   return (
     <div className="app">
       <Modal open={open} onClose={() => setOpen(false)}>
         <div style={modalStyle[0]} className={classes.paper}>
-          <center>
-            <img
-              src="https://www.instagram.com/static/images/web/mobile_nav_type_logo.png/735145cfe0a4.png"
-              alt="Instagram Logo"
-              className="app__headerImage"
-            />
+          <form action="" className="app__singup">
+            <center>
+              <img
+                src="https://www.instagram.com/static/images/web/mobile_nav_type_logo.png/735145cfe0a4.png"
+                alt="Instagram Logo"
+                className="app__headerImage"
+              />
+            </center>
 
             <Input
               type="text"
@@ -74,8 +81,10 @@ function App() {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
             />
-            <Button onClick={handleLogin}>Sign in</Button>
-          </center>
+            <Button type="submit" onClick={handleSignup}>
+              Sign up
+            </Button>
+          </form>
         </div>
       </Modal>
       <div className="app__header">
