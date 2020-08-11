@@ -36,6 +36,19 @@ function App() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [username, setUsername] = useState("");
+  const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    auth.onAuthStateChanged((authUser) => {
+      if (authUser) {
+        setUser(authUser);
+        console.log(authUser);
+      } else {
+        setUser(null);
+      }
+    });
+  }, [user, username]);
+
   // useEffect
   useEffect(() => {
     db.collection("posts").onSnapshot((snapshot) => {
@@ -43,10 +56,15 @@ function App() {
     });
   }, []);
 
+  console.log(user);
+
   const handleSignup = (event) => {
     event.preventDefault();
     auth
       .createUserWithEmailAndPassword(email, password)
+      .then((authUser) => {
+        return authUser.user.updateProfile({ displayName: username });
+      })
       .catch((error) => alert(error.message));
   };
   return (
@@ -72,7 +90,7 @@ function App() {
               type="text"
               placeholder="Email"
               value={email}
-              onChange={(e) => setEmail(e.target.valueAsDate)}
+              onChange={(e) => setEmail(e.target.value)}
             />
 
             <Input
@@ -94,14 +112,17 @@ function App() {
           className="app__headerImage"
         />
       </div>
-
-      <Button
-        onClick={() => {
-          setOpen(true);
-        }}
-      >
-        Sign Up
-      </Button>
+      {user ? (
+        <Button onClick={() => auth.signOut()}>Logout</Button>
+      ) : (
+        <Button
+          onClick={() => {
+            setOpen(true);
+          }}
+        >
+          Sign Up
+        </Button>
+      )}
 
       <h1>Hello programmers, Let's build Instagram Clone.</h1>
 
