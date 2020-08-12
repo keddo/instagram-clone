@@ -47,6 +47,8 @@ function ImageUpload({ username }) {
   };
   return (
     <div>
+      {/* Progressbar */}
+      <progress value={progress} max="100" />
       {/* caption */}
       <input
         type="text"
