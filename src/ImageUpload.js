@@ -1,8 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 import { Button } from "@material-ui/core";
 
 function ImageUpload() {
+  const [image, setImage] = useState(null);
+  const [progress, setProgress] = useState(0);
   const [caption, setCaption] = useState("");
+
+  const handleUpload = (e) => {
+    if (e.target.files[0]) setImage(e.target.files[0]);
+  };
+
+  const handleChange = () => {};
   return (
     <div>
       {/* caption */}

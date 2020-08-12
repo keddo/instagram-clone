@@ -5,6 +5,7 @@ import Post from "./Post";
 import { Button, Input } from "@material-ui/core";
 import Modal from "@material-ui/core/Modal";
 import { makeStyles } from "@material-ui/core/styles";
+import ImageUpload from "./ImageUpload";
 
 function getModalStyle() {
   const top = 50;
@@ -76,6 +77,7 @@ function App() {
   };
   return (
     <div className="app">
+      <ImageUpload />
       <Modal open={open} onClose={() => setOpen(false)}>
         <div style={modalStyle[0]} className={classes.paper}>
           <form action="" className="app__singup">
