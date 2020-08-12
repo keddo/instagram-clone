@@ -7,6 +7,8 @@
 }
 
 .app__header {
+  display: flex;
+  justify-content: space-between;
   background-color: #fff;
   padding: 20px;
   object-fit: contain;
@@ -16,4 +18,12 @@
 .app__singup {
   display: flex;
   flex-direction: column;
+}
+
+.app__headerImage {
+  object-fit: contain;
+}
+
+.app__posts {
+  padding: 20px;
 }

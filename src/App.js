@@ -81,11 +81,6 @@ function App() {
   };
   return (
     <div className="app">
-      {user?.displayName ? (
-        <ImageUpload username={user.displayName} />
-      ) : (
-        <h1>Login to upload</h1>
-      )}
       <Modal open={open} onClose={() => setOpen(false)}>
         <div style={modalStyle[0]} className={classes.paper}>
           <form action="" className="app__singup">
@@ -158,38 +153,47 @@ function App() {
           alt="Instagram Logo"
           className="app__headerImage"
         />
+
+        {user ? (
+          <Button onClick={() => auth.signOut()}>Logout</Button>
+        ) : (
+          <div className="app__loginContainer">
+            <Button
+              onClick={() => {
+                setOpen(true);
+              }}
+            >
+              Sign Up
+            </Button>
+            <Button
+              onClick={() => {
+                setOpenSignin(true);
+              }}
+            >
+              Sign In
+            </Button>
+          </div>
+        )}
       </div>
-      {user ? (
-        <Button onClick={() => auth.signOut()}>Logout</Button>
-      ) : (
-        <div className="app__loginContainer">
-          <Button
-            onClick={() => {
-              setOpen(true);
-            }}
-          >
-            Sign Up
-          </Button>
-          <Button
-            onClick={() => {
-              setOpenSignin(true);
-            }}
-          >
-            Sign In
-          </Button>
-        </div>
-      )}
 
       <h1>Hello programmers, Let's build Instagram Clone.</h1>
 
-      {posts.map(({ id, post }) => (
-        <Post
-          key={id}
-          username={post.username}
-          caption={post.caption}
-          imageUrl={post.imageUrl}
-        />
-      ))}
+      <div className="app__posts">
+        {posts.map(({ id, post }) => (
+          <Post
+            key={id}
+            username={post.username}
+            caption={post.caption}
+            imageUrl={post.imageUrl}
+          />
+        ))}
+      </div>
+
+      {user?.displayName ? (
+        <ImageUpload username={user.displayName} />
+      ) : (
+        <h1>Login to upload</h1>
+      )}
     </div>
   );
 }
