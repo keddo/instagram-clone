@@ -77,7 +77,11 @@ function App() {
   };
   return (
     <div className="app">
-      <ImageUpload />
+      {user?.displayName ? (
+        <ImageUpload username={user.displayName} />
+      ) : (
+        <h1>Login to upload</h1>
+      )}
       <Modal open={open} onClose={() => setOpen(false)}>
         <div style={modalStyle[0]} className={classes.paper}>
           <form action="" className="app__singup">
