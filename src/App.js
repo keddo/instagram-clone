@@ -178,7 +178,9 @@ function App() {
         )}
       </div>
 
-      <h1>Hello programmers, Let's build Instagram Clone.</h1>
+      <h1 className="app_headerTitle">
+        Hello programmers, Let's build Instagram Clone.
+      </h1>
 
       <div className="app__posts">
         <div className="app_postsLeft">
@@ -194,7 +196,7 @@ function App() {
 
         <div className="app_postsRight">
           <InstagramEmbed
-            url="https://instagr.am/p/Zw9o4/"
+            url="https://www.instagram.com/p/Zw9o4/"
             maxWidth={540}
             hideCaption={false}
             containerTagName="div"

@@ -26,4 +26,11 @@
 
 .app__posts {
   padding: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.app_headerTitle {
+  text-align: center;
+  padding: 20px 0;
 }
