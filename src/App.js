@@ -56,7 +56,13 @@ function App() {
     });
   }, []);
 
-  console.log(user);
+  const handleSingin = (event) => {
+    event.preventDefault();
+    auth
+      .signInWithEmailAndPassword(email, password)
+      .catch((error) => alert(error.message));
+    setOpenSignin(false);
+  };
 
   const handleSignup = (event) => {
     event.preventDefault();
@@ -66,6 +72,7 @@ function App() {
         return authUser.user.updateProfile({ displayName: username });
       })
       .catch((error) => alert(error.message));
+    setOpen(false);
   };
   return (
     <div className="app">
@@ -129,8 +136,8 @@ function App() {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
             />
-            <Button type="submit" onClick={handleSignup}>
-              Sign up
+            <Button type="submit" onClick={handleSingin}>
+              Sign In
             </Button>
           </form>
         </div>
