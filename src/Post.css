@@ -33,6 +33,10 @@
   margin-top: 10px;
 }
 
+.post__comments {
+  padding: 20px;
+}
+
 .post__input,
 .post__button {
   border: 1px solid lightgray;
