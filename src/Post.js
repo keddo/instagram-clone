@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import "./Post.css";
 import Avatar from "@material-ui/core/Avatar";
 import { db } from "./firebase";
-function Post({ postId, username, caption, imageUrl }) {
+function Post({ postId, user, username, caption, imageUrl }) {
   const [comments, setComments] = useState([]);
   const [comment, setComment] = useState("");
 
@@ -22,7 +22,14 @@ function Post({ postId, username, caption, imageUrl }) {
     };
   }, [postId]);
 
-  const postComment = (e) => {};
+  const postComment = (e) => {
+    e.preventDefault();
+    db.collection("posts").doc(postId).collection("comments").add({
+      text: comment,
+      username: user.displayName,
+    });
+    setComment("");
+  };
   return (
     <div className="post">
       <div className="post__header">
