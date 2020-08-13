@@ -52,7 +52,7 @@ function Post({ postId, user, username, caption, imageUrl }) {
       </h4>
       <div className="post__comments">
         {comments.map((com) => (
-          <p>
+          <p className="post__content">
             <strong>{com.username}</strong> {com.text}
           </p>
         ))}
