@@ -27,3 +27,24 @@
 .post__text {
   font-weight: normal;
 }
+
+.post__commentBox {
+  display: flex;
+  margin-top: 10px;
+}
+
+.post__input,
+.post__button {
+  border: 1px solid lightgray;
+  outline: none;
+}
+.post__input {
+  flex: 3;
+  padding: 10px 5px;
+}
+
+.post__button {
+  flex: 1;
+  background-color: lightgray;
+  margin-left: 10px;
+}
