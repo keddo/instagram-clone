@@ -30,6 +30,9 @@
   justify-content: center;
 }
 
+.app_postsRight {
+  margin-left: 20px;
+}
 .app_headerTitle {
   text-align: center;
   padding: 20px 0;
