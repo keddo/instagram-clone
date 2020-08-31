@@ -5,13 +5,13 @@
 
 ## Live Demo
 
-[Open Live Demo](https://covid-19-tracker-48afd.web.app/)
+[Open Live Demo](https://instagram-react-app-67d58.web.app)
 
 
 ## Built With
 
 - reactjs
-- Backend COVID-19 API
+- firebase
 
 ## 🛠 Setup configurations
 
@@ -19,11 +19,11 @@ To get this app ready to run, follow this steps:
 
 * Clone this repo
 
-        pc:~$ git clone https://github.com/keddo/covid-19-tracker.git
+        pc:~$ git clone https://github.com/keddo/instagram-clone.git
 
 * Change your directory to the app folder
 
-        pc:~$ cd covid-19-tracker/
+        pc:~$ cd instagram-clone/
 
 * Install required packages
 
